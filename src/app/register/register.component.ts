@@ -15,9 +15,10 @@ import { HeaderType } from '../enum/header-type.enum';
 })
 
 export class RegisterComponent implements OnInit,OnDestroy {
+  
+  
   showLoading :boolean;
   private subscriptions : Subscription[]=[];
-  
 
   constructor(private router:Router,
               private authenticationService : AuthenticationService,

@@ -24,28 +24,26 @@ export class LoginComponent implements OnInit,OnDestroy {
 
   ngOnInit(): void {
     if (this.authenticationService.isUserLoggedIn()){
-      this.router.navigateByUrl('/user/management');
-    } else {
-      this.router.navigateByUrl('/login');
-    }
-}
+      this.router.navigateByUrl('/landing');
+    }// else {
+      //this.router.navigateByUrl('/login');
+   // }
+  }
  
 public onLogin(user:User) :void {
   this.showLoading = true;
-  console.log(user);
   this.subscriptions.push(
     this.authenticationService.login(user).subscribe(
       (response: HttpResponse<User>) =>{
         const token = response.headers.get(HeaderType.JWT_TOKEN);
         this.authenticationService.saveToken(token);
         this.authenticationService.addUserToLocalCache(response.body);
-        this.router.navigateByUrl('/user/management');
+        this.router.navigateByUrl('/landing');
         this.showLoading =false;
 
       },
       (errorResponse : HttpErrorResponse) => {
-        console.log(errorResponse);
-        this.sendErrorNotification(NotificationType.ERROR, errorResponse.error.message);
+             this.sendErrorNotification(NotificationType.ERROR, errorResponse.error.message);
       })
     )
 }
