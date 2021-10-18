@@ -6,7 +6,6 @@ import { NotificationType } from '../enum/notification-type.enum';
 import { User } from '../model/user';
 import { AuthenticationService } from '../service/authentication.service';
 import { NotificationService } from '../service/notification.service';
-import { HeaderType } from '../enum/header-type.enum';
 
 @Component({
   selector: 'app-register',
@@ -38,7 +37,7 @@ public onRegister(user:User) :void {
   console.log(); 
   this.subscriptions.push(
     this.authenticationService.register(user).subscribe(
-      (response: User  ) =>{
+      response =>{
       
         this.showLoading =false;
         this.sendNotification(NotificationType.SUCCESS,"a new account has been created.");

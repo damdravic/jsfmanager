@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpRequest, HttpResponse } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import { User } from '../model/user';
@@ -18,12 +18,12 @@ export class AuthenticationService {
 
   constructor(private http:HttpClient) { }
 
-  public  login(user:User):Observable<User>{
+  public  login(user:User):Observable<HttpResponse<any> | HttpErrorResponse >{
     return this.http.post<HttpResponse<any>>(`${this.host}/user/login`,user,{observe:'response'});
   }
 
-  public  register(user:User):Observable<User>{
-    return this.http.post<User | HttpErrorResponse >(`${this.host}/user/register`,user);
+  public  register(user:User):Observable<HttpResponse<any> | HttpErrorResponse >{
+    return this.http.post<HttpResponse<any> | HttpErrorResponse >(`${this.host}/user/register`,user);
   }
 
   public  logout(): void{
@@ -32,6 +32,9 @@ export class AuthenticationService {
     localStorage.removeItem('user');
     localStorage.removeItem('token');
     localStorage.removeItem('users');
+    
+
+     
   }
 
   public  saveToken(token: string ): void{
