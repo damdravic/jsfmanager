@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthenticationService } from '../service/authentication.service';
 import { NotificationService } from '../service/notification.service';
@@ -15,6 +15,16 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
+
+  
+  
+  public isOpen  :boolean = false;
+
+  receiveSidebarStatus($event){
+       this.isOpen = $event;
+  }
+
+
 
   public users :User[];
   private subscriptions : Subscription[]=[];
@@ -78,8 +88,10 @@ export class UserComponent implements OnInit {
       document.getElementById('openUserInfo').click(); 
   }
 
-  public onUpdateUser(formUser :NgForm) : void{
-    const formData = this.userService.createUserFormData(this.currentUsername, this.editUser, null)
+  public onUpdateUser(formUser :NgForm) : void{ 
+    console.log(formUser.value.active);
+    const formData = this.userService.createUserFormData(this.currentUsername, this.editUser , null)
+
     this.subscriptions.push(
       this.userService.editUser(formData).subscribe(
 

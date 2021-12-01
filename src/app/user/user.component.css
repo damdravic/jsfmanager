@@ -1,9 +1,8 @@
-body {
-    background: #000 !important;
-}
+
 .card {
     border: 1px solid #28a745;
 }
+
 .card-login {
     margin-top: 130px;
     padding: 18px;
@@ -99,3 +98,6 @@ h1{
     outline: none;
     box-shadow: none;
 }
+.modal-backdrop {
+    z-index: -1;
+  }

@@ -1,0 +1,18 @@
+.top-header{
+   
+   
+    width:100%;
+    min-height:80px;
+   
+    background-color: white;
+    -webkit-box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.19);
+    -moz-box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.19);
+    box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.19);
+  
+    background: rgb(240,239,246);
+    background: linear-gradient(90deg, rgba(240,239,246,1) 0%, rgba(164,164,237,1) 100%); 
+}
+
+.toggle-btn{
+    margin:10px;
+}

@@ -13,8 +13,8 @@ export class User {
     public  joinDate :Date;
     public  role : string;
     public  authorities : string[];
-    public active: boolean;
-    public  isNotLocked :boolean;
+    public  active: boolean;
+    public  notLocked :boolean;
 
 
  constructor(){

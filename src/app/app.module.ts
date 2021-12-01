@@ -1,12 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { UserComponent } from '../app/user/user.component';
+
 import { RegisterComponent } from '../app/register/register.component';
 import { LoginComponent } from '../app/login/login.component';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { AuthenticationService } from './service/authentication.service';
 import { UserService } from './service/user.service';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
@@ -15,8 +17,21 @@ import { NotificationModule } from './notification/notification.module';
 import {  NotificationService } from  './service/notification.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
-import { PagesModule } from './pages/pages.module'
+import { UserComponent } from './user/user.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { CustomBlocksModule } from './custom-blocks/custom-blocks.module';
+import { LayoutsModule  } from './layouts/layouts.module';
+
+import { LandingPageComponent } from './layouts/landing-page/landing-page.component';
+
+
  
+
+
+
+
 
 
 @NgModule({
@@ -24,8 +39,9 @@ import { PagesModule } from './pages/pages.module'
     AppComponent,
     UserComponent,
     LoginComponent,
-    RegisterComponent
-
+    RegisterComponent,
+    LandingPageComponent
+  
   ],
   imports: [
     BrowserModule,
@@ -34,7 +50,10 @@ import { PagesModule } from './pages/pages.module'
     NotificationModule,
     FormsModule,
     NgbModule,
-    PagesModule
+    MatSidenavModule,
+    BrowserAnimationsModule,
+    CustomBlocksModule,
+    LayoutsModule
     
   ],
   providers:   [NotificationService,  

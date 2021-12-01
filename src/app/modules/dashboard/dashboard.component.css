@@ -1,0 +1,40 @@
+.cards-area{
+    position :relative;
+    display: grid;
+    width: 100%;
+    padding :5px;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap:20px;
+
+}
+
+ .info-card{
+    position: relative;
+    padding: 20px;
+    display: flex;
+    justify-content:space-between;
+    cursor:pointer;
+    -webkit-box-shadow: 2px 5px 5px 0px rgba(0,0,0,0.19);
+    -moz-box-shadow: 2px 5px 5px 0px rgba(0,0,0,0.19);
+    box-shadow: 2px 5px 5px 0px rgba(0,0,0,0.19);
+    background: rgb(240,239,246);
+background: linear-gradient(90deg, rgba(240,239,246,1) 0%, rgba(164,164,237,1) 100%); 
+
+}
+
+.card-title{
+    font-weight: bold;
+    color:oldlace;
+}
+
+.card-info{
+    font-size: 20px;
+    padding: 10px;
+    font-weight:500;
+
+}
+.card-icon{
+    padding:20px;
+    font-size: 50px;
+   
+}

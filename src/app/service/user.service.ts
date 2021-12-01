@@ -34,7 +34,7 @@ public resetPassword(email : string):Observable<any  | HttpErrorResponse >{
 
 public createUserFormData(loggedInUsername : string, user:User, profileImage : File): FormData {
   const formData = new FormData();
-  formData.append('currentUsername',loggedInUsername);
+  formData.append('currentUser',loggedInUsername);
   formData.append('firstName',user.firstName);
   formData.append('lastName',user.lastName);
   formData.append('username',user.username);
@@ -42,7 +42,7 @@ public createUserFormData(loggedInUsername : string, user:User, profileImage : F
   formData.append('role',user.role);
   formData.append('profileImage',profileImage);
   formData.append('isActive',JSON.stringify(user.active));
-  formData.append('isNotLocked',JSON.stringify(user.isNotLocked));
+  formData.append('isNotLocked',JSON.stringify(user.notLocked));
 
 
  return formData;

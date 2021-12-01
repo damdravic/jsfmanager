@@ -1,0 +1,20 @@
+
+
+<mat-drawer-container>
+   
+    <mat-drawer mode="side" [opened] = "collapsed">
+        <div class="sidebar-area">
+        <app-sidebar (sidebarStatus)="changeSidebarStatus($event)"></app-sidebar>
+        </div>
+    </mat-drawer>
+    <mat-drawer-content [class.sidebarExtended] = "extended" autosize>
+        <app-header (collapseEvent)="toggleSideBar($event)"></app-header>
+        <app-sheader></app-sheader>
+        
+        <router-outlet></router-outlet>
+           
+    </mat-drawer-content>
+</mat-drawer-container>
+
+
+<app-footer></app-footer>

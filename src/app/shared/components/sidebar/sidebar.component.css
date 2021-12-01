@@ -1,0 +1,101 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+
+.sidebar-wrapper{
+    width:150px;
+   
+    
+    
+}
+
+#navigation{
+ color : black;  
+ 
+
+}
+
+
+.navigation ul{
+   
+    top:0;
+    left:0;
+    width : 100%;
+}
+
+.navigation ul li {
+    position: relative;
+    width: 100%;
+    list-style: none;
+
+}
+
+
+.navigation ul li:nth-child(1):hover{
+    margin-top: 20px;
+    background: transparent;
+    text-align: center;
+}
+
+.navigation ul li:nth-child(1){
+    margin-top: 20px;
+    background: transparent;
+    text-align: center;
+    text-decoration-style: dotted;
+}
+
+
+.navigation ul li:hover{
+    background-color: red;
+}
+.navigation ul li a {
+    position:relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+   color :black;
+}
+.navigation ul li a .icon{
+    position : relative;
+    display : block;
+    min-width: 50px;
+    height : 50px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.navigation ul li a .icon .fa {
+    color: black;
+    font-size: 24px;
+}
+
+.navigation ul li a .title{
+    position :relative ;
+    display:block;
+    padding : 0 10px;
+    height: 50px;
+    line-height: 50px;
+    white-space: nowrap;
+}
+.toggle{
+    position :absolute;
+    width: 50px;
+    height: 50px;
+    top:0px;
+    right: 0px;
+    cursor:pointer;
+    z-index: 10;
+} 
+.toggle::before{
+    content : '\f0c9';
+    font-family: fontAwesome;
+    position :absolute;
+    width: 100%;
+    height: 100%;
+    line-height: 60px;
+    font-size: 24px;
+    color:black;
+    text-align: center;
+}

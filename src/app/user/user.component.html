@@ -1,42 +1,17 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
-      </ul>
-          
-        <a class="" href="#">Welcom George</a>
-        <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="logout()">Logout</button>
-      
-    </div>
-  </nav>
 
+ 
+
+<div class="topbar">
+  
   <button class="btn btn-primary" [hidden]=false type="button" id="idAddNewUser" data-toggle="modal" data-target="#addNewUser" > +++ Add New User</button>
+  
+</div>
+
 
 <br><br>
+
+
+
 <div class="row justify-content-center">
   <div class="col-12 col-md-10 col-lg-8">
       <form #searchForm="ngForm" class="card card-sm">
@@ -49,9 +24,12 @@
                   <input class="form-control form-control-lg form-control-borderless" name="searchTerm" ngModel (ngModelChange)="searchUsers(searchForm.value.searchTerm)"
                   type="search" placeholder="Search topics or keywords">
               </div>
+              <div> {{isOpen}} </div>
+              
               <!--end of col-->
               <div class="col-auto">
                   <button class="btn btn-lg btn-success" type="submit">Search</button>
+                 
               </div>
               <!--end of col-->
           </div>
@@ -59,6 +37,7 @@
   </div>
   <!--end of col-->
 </div>
+
 
 
 <br><br>
@@ -100,6 +79,8 @@
 
 <button class="btn btn-outline-success" [hidden]=true type="button" id="openUserInfo" data-toggle="modal" data-target="#viewUserModal" > here</button>
 <button class="btn btn-outline-success" [hidden]=true type="button" id="openEditUser" data-toggle="modal" data-target="#editUserModal" > here</button>
+
+
 
 <!-- model user info -->
 <div class="modal" id="viewUserModal">
@@ -149,8 +130,8 @@
 
              <tr>
               <td>User Status</td>
-            <td><span [hidden]="selectedUser?.isNotLocked" class="badge badge-success"> Account Not Locked </span>
-            <span [hidden]="!selectedUser?.isNotLocked" class="badge badge-danger">  Account  Locked </span></td>
+            <td><span [hidden]="selectedUser?.notLocked" class="badge badge-success"> Account Not Locked </span>
+            <span [hidden]="!selectedUser?.notLocked" class="badge badge-danger">  Account  Locked </span></td>
            </tr>
             
           </tbody>
@@ -196,7 +177,7 @@
                                 </div>
                                 <div class="form-group">
                                   <label for="authority">Role</label>
-                                  <select name="role" required ngModel="ROLE_USER" class="form-control">
+                                  <select name="role" required [(ngModel)]="editUser.role"  class="form-control">
                                     <option value="ROLE_USER"> USER </option>
                                     <option value="ROLE_ADMIN"> ADMIN </option>
                                   </select>
@@ -211,7 +192,7 @@
 
                                 <div class="form-group">
                                   <label class="form-check-label">
-                                    <input name="active" type="checkbox" [(ngModel)]="editUser.isNotLocked"  class="form-check-input"> Not Locked
+                                    <input name="isNotLocked" type="checkbox" [(ngModel)]="editUser.notLocked"  class="form-check-input"> Not Locked
                                   </label>
                                 </div>
 
@@ -292,3 +273,6 @@
 </div>
 
 </div>
+
+
+
