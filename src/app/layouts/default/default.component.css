@@ -25,7 +25,7 @@ mat-drawer-content{
    
     background-color: white;
 }
-.sidebar-area{
+.com sidebar-area{
    height:100%;
     margin-right:5px;
 
@@ -37,6 +37,7 @@ mat-drawer-content{
     -moz-box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.19);
     box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.19);
 }
+
 
 .main-area{
     margin-top:10px;

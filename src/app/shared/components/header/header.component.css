@@ -1,4 +1,4 @@
-.top-header{
+.com top-header{
    
    
     width:100%;
@@ -12,7 +12,9 @@
     background: rgb(240,239,246);
     background: linear-gradient(90deg, rgba(240,239,246,1) 0%, rgba(164,164,237,1) 100%); 
 }
-
+.top-header{
+    border: 1px solid rgb(221, 203, 203);
+}
 .toggle-btn{
     margin:10px;
 }

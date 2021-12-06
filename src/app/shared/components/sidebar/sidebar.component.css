@@ -47,7 +47,7 @@
 
 
 .navigation ul li:hover{
-    background-color: red;
+    background-color: rgb(211, 198, 198);
 }
 .navigation ul li a {
     position:relative;

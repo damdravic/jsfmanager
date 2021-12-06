@@ -8,7 +8,7 @@
 
 }
 
- .info-card{
+ .com info-card {
     position: relative;
     padding: 20px;
     display: flex;
@@ -18,9 +18,16 @@
     -moz-box-shadow: 2px 5px 5px 0px rgba(0,0,0,0.19);
     box-shadow: 2px 5px 5px 0px rgba(0,0,0,0.19);
     background: rgb(240,239,246);
-background: linear-gradient(90deg, rgba(240,239,246,1) 0%, rgba(164,164,237,1) 100%); 
+      background: linear-gradient(90deg, rgba(240,239,246,1) 0%, rgba(164,164,237,1) 100%); 
 
+   }
+.info-card {
+
+    border : 1px solid black;
+    border-radius: 10%;
 }
+
+
 
 .card-title{
     font-weight: bold;

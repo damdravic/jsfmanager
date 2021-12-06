@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpEvent, HttpResponse } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import { User } from '../model/user';
@@ -9,6 +9,11 @@ import { JwtHelperService } from "@auth0/angular-jwt";
   providedIn: 'root'
 })
 export class UserService {
+ 
+ 
+  deleteUser(userId : number):Observable<any | HttpErrorResponse > {
+    return this.http.delete<any>(`${this.host}/delete/${userId}`);
+  }
   
  
   public editUser(formData :FormData):Observable<User  | HttpErrorResponse >{

@@ -7,8 +7,9 @@ import { User } from '../model/user';
 import { NotificationType } from '../enum/notification-type.enum';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
-
+import { NgForm,FormsModule } from '@angular/forms';
+import { CustomHttpResponse } from '../model/custom-http-response';
+ 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -89,7 +90,8 @@ export class UserComponent implements OnInit {
   }
 
   public onUpdateUser(formUser :NgForm) : void{ 
-    console.log(formUser.value.active);
+    console.log("active -->" + formUser.value.active);
+    console.log("notLocked -->" + formUser.value.notLocked);
     const formData = this.userService.createUserFormData(this.currentUsername, this.editUser , null)
 
     this.subscriptions.push(
@@ -114,15 +116,16 @@ export class UserComponent implements OnInit {
 
 
 
-  public addNewUser(formUser:NgForm):void{
-    const formData = this.userService.createUserFormData(null, formUser.value, null)
+  public addNewUser(userForm  : NgForm):void{
+   console.log("userForm : -- > " + userForm.value.firstName);
+    const formData = this.userService.createUserFormData(null, userForm.value, null);
     this.subscriptions.push(
       this.userService.addUser(formData).subscribe(
 
         (response:User) => {
           document.getElementById('new-user-close').click();
           this.getUser(false);
-          formUser.reset();
+          //user.reset();
 
           this.sendNotification(NotificationType.SUCCESS,`${response.firstName} account was created successfully`)
 
@@ -155,6 +158,21 @@ export class UserComponent implements OnInit {
        
      }
 
+  }
+  public onDeleteUser(userId : number) : void{
+    this.subscriptions.push(
+      this.userService.deleteUser(userId).subscribe(
+        (response:CustomHttpResponse) => {
+
+          this.sendNotification(NotificationType.SUCCESS, response.message);
+          this.getUser(true);
+
+        },(error:HttpErrorResponse) => {
+          this.sendNotification(NotificationType.ERROR,error.error.message);
+          
+        }
+      )
+      );
   }
 
   public logout(){
