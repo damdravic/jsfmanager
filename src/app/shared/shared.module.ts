@@ -7,6 +7,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import { SheaderComponent } from './components/sheader/sheader.component';
+import {  RouterModule } from '@angular/router';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 
@@ -22,12 +24,15 @@ import { SheaderComponent } from './components/sheader/sheader.component';
     CommonModule,
     MatDividerModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    RouterModule,
+    AppRoutingModule
   ],exports: [
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
-    SheaderComponent
+    SheaderComponent,
+    AppRoutingModule
 
   ]
 })

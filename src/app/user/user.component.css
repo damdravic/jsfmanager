@@ -1,4 +1,9 @@
-
+.tableWrapper{
+    padding:20px;
+    background-color: rgb(243, 235, 245);
+    border-radius: 10px;
+   
+}
 .card {
     border: 1px solid #28a745;
 }
@@ -40,13 +45,6 @@ input:focus{
     background-color: #ff0000;
 }
 
-.btn-outline-danger {
-    color: #fff;
-    font-size: 18px;
-    background-color: #28a745;
-    background-image: none;
-    border-color: #28a745;
-}
 
 .form-control {
     display: block;
@@ -81,12 +79,13 @@ input:focus{
     border-radius: 0;
 }
 h1{
-    color : white;
+    color : rgb(0, 0, 0);
 }
 
 
 #userInfo td {
     color : white;
+    border: 1px solid #28a745;
 }
 
 .form-control-borderless {
@@ -101,3 +100,17 @@ h1{
 .modal-backdrop {
     z-index: -1;
   }
+
+
+.above_table{
+    display:grid;
+    grid-template-columns: 50% 50%;
+}
+.actionArea{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.tableTitle{
+    color:black;
+}

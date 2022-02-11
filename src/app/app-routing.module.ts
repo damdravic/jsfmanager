@@ -7,6 +7,7 @@ import { LandingPageComponent } from './layouts/landing-page/landing-page.compon
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { DefaultComponent } from './layouts/default/default.component';
 import { TablePageComponent } from './layouts/table-page/table-page.component';
+import { CarComponent } from './car/car.component';
 
 
 
@@ -17,12 +18,14 @@ const routes: Routes = [
   
   {path:'default', component:DefaultComponent,children :[
     { path:'',component:DashboardComponent },
-    {path:'user',component:UserComponent}
+    {path:'user',component:UserComponent},
+    {path:'cars',component:CarComponent}
    
   ]},
 
   {path:'tablePage',component:TablePageComponent,children:[
-     {path:'user',component:UserComponent}
+     {path:'user',component:UserComponent},
+     {path:'cars',component:CarComponent}
    ]},
    {path:'user', component:UserComponent},
 

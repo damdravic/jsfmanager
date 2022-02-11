@@ -34,12 +34,15 @@ export class UserComponent implements OnInit {
   public editUser= new User();
   private currentUsername: string;
 
+  public user:User;
+
   constructor(private authenticationService : AuthenticationService,
               private userService : UserService,
               private notificationService : NotificationService,
               private router : Router ){}
  
               ngOnInit(): void {
+                this.user = this.authenticationService.getUserFromLocalCache();
                 if(this.authenticationService.isUserLoggedIn()){
                 this.getUser(true);
               }
@@ -68,6 +71,13 @@ export class UserComponent implements OnInit {
     )
   );
   }          
+
+
+
+  private getUserRole():string{
+   return this.authenticationService.getUserFromLocalCache().role
+
+  }
 
   private sendNotification(notificationType: NotificationType, message: string):void {
     if(message){
@@ -159,9 +169,9 @@ export class UserComponent implements OnInit {
      }
 
   }
-  public onDeleteUser(userId : number) : void{
+  public onDeleteUser(username : string) : void{
     this.subscriptions.push(
-      this.userService.deleteUser(userId).subscribe(
+      this.userService.deleteUser(username).subscribe(
         (response:CustomHttpResponse) => {
 
           this.sendNotification(NotificationType.SUCCESS, response.message);

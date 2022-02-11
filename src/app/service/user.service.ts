@@ -11,8 +11,8 @@ import { JwtHelperService } from "@auth0/angular-jwt";
 export class UserService {
  
  
-  deleteUser(userId : number):Observable<any | HttpErrorResponse > {
-    return this.http.delete<any>(`${this.host}/delete/${userId}`);
+  deleteUser(username:string):Observable<any | HttpErrorResponse > {
+    return this.http.delete<any>(`${this.host}/delete/${username}`);
   }
   
  

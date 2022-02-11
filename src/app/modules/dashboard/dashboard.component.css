@@ -21,24 +21,37 @@
       background: linear-gradient(90deg, rgba(240,239,246,1) 0%, rgba(164,164,237,1) 100%); 
 
    }
+
 .info-card {
 
-    border : 1px solid black;
-    border-radius: 10%;
+    border :none;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    border-radius: 3%;
+    background-color: rgb(255, 255, 255);
+    -webkit-box-shadow: 1px 2px 8px 3px rgba(0,0,0,0.19);
+    
+    -moz-box-shadow: 1px 2px 8px 3px rgba(0,0,0,0.19);
+    box-shadow: 1px 2px 8px 3px rgba(0,0,0,0.19);
+    
 }
 
 
 
 .card-title{
+    padding: 10px;
     font-weight: bold;
-    color:oldlace;
+    color:rgb(56, 41, 41);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: lighter;
+    font-size: 30px;
 }
 
 .card-info{
-    font-size: 20px;
+    
+    font-size: 30px;
     padding: 10px;
-    font-weight:500;
-
+    
 }
 .card-icon{
     padding:20px;

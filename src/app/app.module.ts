@@ -25,6 +25,8 @@ import { CustomBlocksModule } from './custom-blocks/custom-blocks.module';
 import { LayoutsModule  } from './layouts/layouts.module';
 
 import { LandingPageComponent } from './layouts/landing-page/landing-page.component';
+import { CarComponent } from './car/car.component';
+
 
 
  
@@ -40,7 +42,8 @@ import { LandingPageComponent } from './layouts/landing-page/landing-page.compon
     UserComponent,
     LoginComponent,
     RegisterComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    CarComponent
   
   ],
   imports: [

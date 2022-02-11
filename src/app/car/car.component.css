@@ -1,0 +1,27 @@
+.page_content{
+    padding:20px;
+   
+    margin:0px 10px 0px 10px;
+    background-color: rgb(243, 235, 245);
+    border-radius: 10px;
+   
+}
+.above_table{
+    display: grid;
+    grid-template-columns: 80% 20%;
+    padding-bottom: 10px;
+    }
+ input {text-transform: uppercase;}
+
+ .add-warning{
+    background-color: red;
+    color: white
+
+ }
+ .h2{
+     color:white;
+ }
+
+ .space{
+     height: 200px;
+ }

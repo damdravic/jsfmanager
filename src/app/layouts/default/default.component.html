@@ -2,7 +2,7 @@
 
 <mat-drawer-container>
    
-    <mat-drawer mode="side" [opened] = "collapsed">
+    <mat-drawer mode="side" [opened] = "!collapsed"  >
         <div class="sidebar-area">
         <app-sidebar (sidebarStatus)="changeSidebarStatus($event)"></app-sidebar>
         </div>

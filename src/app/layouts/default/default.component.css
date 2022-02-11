@@ -15,14 +15,15 @@ mat-drawer{
  
 mat-drawer-container{
     height: 100%;
-   border:none;
+
 
    
 }
 
 mat-drawer-content{
     
-   
+    
+
     background-color: white;
 }
 .com sidebar-area{

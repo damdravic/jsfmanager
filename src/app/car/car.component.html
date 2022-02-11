@@ -1,0 +1,311 @@
+<div class="page_content">
+
+  <button type="button" [hidden]=true  id="openNewCarModel" data-toggle="modal" data-target="#addNewCarModel">  </button>
+  <button type="button" [hidden]=true  id="openNewCarBrand" data-toggle="modal" data-target="#addNewCarBrand"></button>
+  
+  <button type="button" [hidden]=true  id="openEditCar"     data-toggle="modal" data-target="#editCar"></button>
+                    
+
+
+  <div class="container above_table">
+    <div class="title text-center">
+      <h2>Cars Table</h2>
+    </div>
+    <div class="add_action text-center">
+      <button type="button" class="btn btn-primary float-right" [hidden]=false id="toAddNewCar" data-toggle="modal"
+        data-target="#addNewCar"><i class="fa fa-plus-square-o" aria-hidden="true"></i>
+        .. Add New Car</button>
+    </div>
+  </div>
+
+ 
+
+
+
+  <div>
+
+    <table class="table table-sm table-hover table-striped ">
+      <thead>
+        <tr>
+          <th scope="col">Car Id</th>
+          <th scope="col">License Plate</th>
+          <th scope="col">Brand</th>
+          <th scope="col">Model</th>
+          <th scope="col">First Reg</th>
+          <th scope="col">Owner</th>
+          <th scope="col">Color</th>
+          <th scope="col">Sale</th>
+          <th scope="col">Active</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let car of cars">
+        <tr>
+          <th scope="row">{{car.id}}</th>
+          <td>{{car.carRegNumber}}</td>
+          <td>{{car.carBrand}}</td>
+          <td>{{car.carModel}}</td>
+          <td>{{car.carFirstReg}}</td>
+          <td>{{car.carOwner}}</td>
+          <td>{{car.carColor}}</td>
+          <td>{{car.carSold}}</td>
+          <td>{{car.carIsActive}}</td>
+          <td class="">
+            <div class="btn-group-sm">
+              <button class="btn btn-outline-info" (click)="onEditCar(car)"><i class="fas fa-edit"></i></button>
+              <button class="btn btn-outline-danger" (click)="onDeleteCar(car.carRegNumber)"><i
+                  class="fas fa-trash"></i></button>
+            </div>
+          </td>
+        </tr>
+
+
+      </tbody>
+    </table>
+  </div>
+
+  <!--  modal add new car   -->
+  <div class="modal" id="addNewCar">
+    <div class="container h-100">
+      <div class="row h-100">
+        <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+          <div class="d-table-cell align-middle">
+
+            <div class="text-center mt-4">
+              <h1 class="h2">Get started</h1>
+              <p class="lead">
+                Start creating the best possible user experience for you customers.
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="card-body">
+                <div class="m-sm-4">
+                  <form #carForm="ngForm" (ngSubmit)="addNewCar(carForm)">
+                    <div class="form-group">
+                      <label>Nr Inmatriculare</label>
+                      <input class="form-control" type="text" name="carRegNumber" ngModel>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Marca</label>
+                      <select [(ngModel)]="selectedBrand" name="carBrandX" id="carBrandX" class="form-control" (change)="carBrandChange($event.target.value)">
+                        <option disabled selected hidden value=""></option>
+                        
+                        <option *ngFor="let carBrand of carBrands" [value]="carBrand.carBrandName">{{carBrand.carBrandName}} </option>
+                        <option class="add-warning" value="newBrand"> Adauga marca </option>
+                      </select>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label>Model</label>
+                      <select class="form-control" [(ngModel)]="selectedModel" name="carModel" (change)="carModelChange($event.target.value)" >
+                        <option hidden selected value=""> </option>
+                        
+                        <option *ngFor="let carModel of carModels" [value]="carModel.modelName"> {{carModel.modelName}} </option>
+                        <option class="add-warning" value="newModel"> Adauga model </option>
+                        
+                      </select>
+                    </div>
+                    
+
+
+                    <div class="form-group">
+                      <label>Car Owner</label>
+                      <input class="form-control form-control-lg" type="text" name="carOwner" ngModel
+                        placeholder="Enter carOwner">
+                    </div>
+                    <div class="form-group">
+                      <label>First Registration</label>
+                      <input class="form-control form-control-lg" type="date" name="carFirstReg" ngModel
+                        placeholder="Enter carOwner">
+                    </div>
+                    <div class="form-group">
+                      <label>Car Color</label>
+                      <input class="form-control form-control-lg" type="text" name="carColor" ngModel
+                        placeholder="Enter carOwner">
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" name="carSold" ngModel>
+                      <label class="form-check-label">
+                        Masina vanduta
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" name="carIsActive" ngModel>
+                      <label class="form-check-label">
+                        Masina activa
+                      </label>
+                    </div>
+
+
+
+                    <div class="text-center mt-3">
+                      <!--<a type="submit" class="btn btn-lg btn-primary">Sign up</a> -->
+                      <button type="submit" class="btn btn-lg btn-primary">Sign up</button>
+                    </div>
+                  </form>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal" id="new-car-close">
+                    Close</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--  modal edit car   -->
+  <div class="modal" id="editCar">
+    <div class="container h-100">
+      <div class="row h-100">
+        <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+          <div class="d-table-cell align-middle">
+
+            <div class="text-center mt-4">
+              <h1 class="h2">Get started</h1>
+              <p class="lead">
+                Start creating the best possible user experience for you customers.
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="card-body">
+                <div class="m-sm-4">
+                  <form #editCarForm="ngForm" (ngSubmit)="onUpdateCar(editCarForm)">
+                    <div class="form-group">
+                      <label>Nr Inmatriculare</label>
+                      <input class="form-control" type="text" name="carRegNumber" [(ngModel)]="editCar.carRegNumber">
+                    </div>
+                   
+
+                   
+                    
+
+
+                    <div class="form-group">
+                      <label>Car Owner</label>
+                      <input class="form-control form-control-lg" type="text" name="carOwner"
+                        [(ngModel)]="editCar.carOwner" placeholder="Enter carOwner">
+                    </div>
+                    <div class="form-group">
+                      <label>First Registration</label>
+                      <input class="form-control form-control-lg" type="date" name="carFirstReg"
+                        [(ngModel)]="editCar.carFirstReg" placeholder="Enter carOwner">
+                    </div>
+                    <div class="form-group">
+                      <label>Car Color</label>
+                      <input class="form-control form-control-lg" type="text" name="carColor"
+                        [(ngModel)]="editCar.carColor" placeholder="Enter carOwner">
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" name="carSold"
+                        [(ngModel)]="editCar.carSold">
+                      <label class="form-check-label">
+                        Masina vanduta
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" name="isActive"
+                        [(ngModel)]="editCar.carIsActive">
+                      <label class="form-check-label">
+                        Masina activa
+                      </label>
+                    </div>
+
+
+                    <div class="text-center mt-3">
+                      <!--<a type="submit" class="btn btn-lg btn-primary">Sign up</a> -->
+                      <button type="submit" class="btn btn-lg btn-primary">Sign up</button>
+                    </div>
+                  </form>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeEditCar">
+                    Close</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- modal for new  CarBrand-->
+  <div class="modal" id="addNewCarBrand">
+    <div class="container h-100">
+      <div class="row">
+        <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+          <div class="d-table-cell align-middle">
+
+            <div class="text-center mt-4">
+              <h1 class="h2">Add new Car Brand</h1>
+            </div>
+
+            <div class="card">
+              <div class="card-body">
+                <div class="m-sm-4">
+                  <form #newCarBrandForm="ngForm" (ngSubmit)="onNewCarBrand(newCarBrandForm)">
+
+                    <div class="form-group">
+                      <label>New Car Brand</label>
+                      <input class="form-control form-control-lg" type="text" name="carBrandName"
+                        ngModel placeholder="Enter New Car Brand">
+                    </div>
+
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-primary">Add Brand</button>
+                      <button type="button" class="btn btn-secondary float-right" data-dismiss="modal" id="closeAddNewCarBrand">
+                        Close</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div  class="modal" id="addNewCarModel">
+    <div class="container h-100 " >
+      <div class="row">
+        <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+          <div class="d-table-cell align-middle" >
+
+            <div class="space">
+
+            </div>
+            <div class="text-center mt-4" >
+              <h1 class="h2">Add new Car Model</h1>
+            </div>
+
+            <div class="card" style="margin-top: 20px;">
+              <div class="card-body" style="margin-top: 20px;">
+                <div class="m-sm-4">
+                  <form #newCarModelForm="ngForm" (ngSubmit)="onNewCarModel(newCarModelForm)">
+
+                    <div class="form-group">
+                      <label>New Car Model</label>
+                      <input class="form-control form-control-lg" type="text" name="carModelName"
+                         ngModel placeholder="Enter New Car Model" >
+                    </div>
+
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-primary">Add Model</button>
+                      <button type="button" class="btn btn-secondary float-right" data-dismiss="modal" id="closeAddNewCarModel">
+                        Close</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
