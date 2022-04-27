@@ -1,11 +1,12 @@
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable,Operator } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Car } from './../model/car';
-import { CarBrand} from './../model/car-brand';
-import { CarModel} from './../model/car-model';
+import { CarBrand } from './../model/car-brand';
+import { CarModel } from './../model/car-model';
+import { AddCarModalComponent } from '../modal/add-car-modal/add-car-modal.component';
 
 
 
@@ -13,82 +14,117 @@ import { CarModel} from './../model/car-model';
   providedIn: 'root'
 })
 export class CarService {
+  
 
   private host = environment.apiUrl;
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
- public addCar(formData :FormData):Observable<Car  | HttpErrorResponse>{
-   return this.http.post<Car>(`${this.host}/backendResource/car/add`,formData);
- }
+  public addCar(formData: FormData): Observable<Car | HttpErrorResponse> {
+    return this.http.post<Car>(`${this.host}/backendResource/car/add`, formData);
+  }
 
- public getCars():Observable<Car[] | HttpErrorResponse>{
-   return this.http.get<Car[]>(`${this.host}/backendResource/car/list`);
- }
+  public getCars(): Observable<Car[] | HttpErrorResponse> {
+    return this.http.get<Car[]>(`${this.host}/backendResource/car/list`);
+  }
 
-public deleteCar(regNumber:string):Observable<any|HttpErrorResponse>{
-  return this.http.delete<any>(`${this.host}/backendResource/car/delete/${regNumber}`);
-}
+  public deleteCar(regNumber: string): Observable<any | HttpErrorResponse> {
+    return this.http.delete<any>(`${this.host}/backendResource/car/delete/${regNumber}`);
+  }
 
-public updateCar( formData : FormData):Observable<Car | HttpErrorResponse>{
-     return this.http.post<Car>(`${this.host}/backendResource/car/update/`,formData);
-}
+  public updateCar(formData: FormData): Observable<Car | HttpErrorResponse> {
+    return this.http.post<Car>(`${this.host}/backendResource/car/update/`, formData);
+  }
 
-public createCarFormData(currentCarRegNr : string, car :Car){
+  public createCarFormData(currentCarRegNr: string, car: Car) {
+
+    const formData = new FormData();
+    console.log(car.carFirstReg.toString());
+
+    formData.append('currentCarRegNr', currentCarRegNr);
+    formData.append('carRegNumber', car.carRegNumber);
+    formData.append('carBrand', car.carBrand);
+    formData.append('carModel', car.carModel);
+    formData.append('carOwner', car.carOwner);
+    formData.append('carFirstReg', car.carFirstReg.toString());
+    formData.append('carColor', car.carColor);
+    formData.append('carSold', JSON.stringify(car.carSold));
+    formData.append('carIsActive', JSON.stringify(car.carIsActive));
+
+    return formData;
+
+  }
+
+  public addCarToLocalCache(cars: Car[]): void {
+    localStorage.setItem('cars', JSON.stringify(cars));
+  }
+
+
+
+  /*
+  *
+  *  Methodes for CarBrands and CarModel
+  *
+  */
+
+  public getCarBrands(): Observable<CarBrand[] | HttpErrorResponse> {
+    return this.http.get<CarBrand[]>(`${this.host}/backendResource/car/listCarBrands`);
+  }
+
   
-  const formData = new FormData();
-  console.log(car.carFirstReg.toString()) ;
-
-  formData.append('currentCarRegNr',currentCarRegNr);
-  formData.append('carRegNumber',car.carRegNumber);
-  formData.append('carBrand',car.carBrand);
-  formData.append('carModel',car.carModel);
-  formData.append('carOwner',car.carOwner);
-  formData.append('carFirstReg',car.carFirstReg.toString());
-  formData.append('carColor',car.carColor);
-  formData.append('carSold',JSON.stringify(car.carSold));
-  formData.append('carIsActive',JSON.stringify(car.carIsActive));
-
-  return formData;
-
-}
-
-public addCarToLocalCache(cars : Car[]): void{
-  localStorage.setItem('cars',JSON.stringify(cars));
-}
 
 
 
-/*
-*
-*  Methodes for CarBrands and CarModel
-*
-*/
+  public addNewCarBrand(newBrandName: string): Observable<CarBrand | HttpErrorResponse> {
 
-public getCarBrands():Observable <CarBrand[] |HttpErrorResponse>{
-  return this.http.get<CarBrand[]>(`${this.host}/backendResource/car/listCarBrands`);
-}
+    const fd: FormData = new FormData();
+    fd.append('nb', newBrandName);
 
-public addNewCarBrand(newBrandName : string):Observable<CarBrand | HttpErrorResponse>{
+    return this.http.post<CarBrand>(`${this.host}/backendResource/car/newCarBrand`, fd);
+  }
+
+  public getCarModels(): Observable<CarModel[] | HttpErrorResponse> {
+    return this.http.get<CarModel[]>(`${this.host}/backendResource/car/listCarModel`);
+  }
+
+  public addNewCarModel(newModel: string, selectedBrand: string): Observable<CarModel | HttpErrorResponse> {
+
+    const fd: FormData = new FormData();
+    fd.append("newModel", newModel);
+    fd.append("selectedBrand", selectedBrand);
+
+    return this.http.post<CarModel>(`${this.host}/backendResource/car/newCarModel`, fd);
+  }
+
+
+
+  private brandSource = new BehaviorSubject('');
+
+  changeBrand(brand: string) {
+    console.log("aici service 1 brand" + brand);
+    this.brandSource.next(brand);
+  }
+
+  getNewBrandToCarForm(): Observable<string> {
+    var newBrand = this.brandSource.asObservable();
+    console.log("aici service 2 brand" + newBrand);
+    return newBrand;
+  }
+
+
+
   
-      const fd :FormData= new FormData();
-      fd.append('nb', newBrandName);
+  private modelSource = new BehaviorSubject(''); 
 
-  return this.http.post<CarBrand>(`${this.host}/backendResource/car/newCarBrand`,fd);
-}
+  changeModel(model: string) {
+    this.modelSource.next(model);
+  }
 
-public getCarModels():Observable <CarModel[] | HttpErrorResponse>{
-  return this.http.get<CarModel[]>(`${this.host}/backendResource/car/listCarModel`);
-}
+  getNewModelToCarForm():Observable<string> {
+    var newModel = this.modelSource.asObservable();
+    return newModel;
+  }
 
-public addNewCarModel(newModel: string,selectedBrand : string):Observable<CarModel | HttpErrorResponse>{
-  
-     const fd:FormData = new FormData();
-     fd.append("newModel", newModel);
-     fd.append("selectedBrand",selectedBrand);
-
-  return this.http.post<CarModel>(`${this.host}/backendResource/car/newCarModel`,fd);
-}
 
 
 

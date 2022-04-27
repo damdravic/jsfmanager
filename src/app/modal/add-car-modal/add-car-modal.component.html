@@ -1,0 +1,102 @@
+<button type="button" class="btn btn-secondary" (click)="getCarsInConsole()">
+  Get cars in consele</button>
+  {{selectedBrand}}
+<!--  modal add new car   -->
+<div  id="addNewCar">
+    <div class="container h-100">
+      <div class="row h-100">
+        <div class=" mx-auto d-table h-100">
+          <div class="d-table-cell align-middle">
+
+            <div class="text-center mt-4">
+              <h1 class="h2">Get started</h1>
+              <p class="lead">
+                Start creating the best possible user experience for you customers.
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="card-body">
+                <div class="m-sm-4">
+                  <form #carForm="ngForm" (ngSubmit)="addNewCar(carForm)">
+                    <div class="form-group">
+                      <label>Nr Inmatriculare</label>
+                      <input class="form-control" type="text" name="carRegNumber" ngModel>
+                    </div>
+
+
+                    <!-- ------------------------------------------------------------------
+                       choose brand of car or if it not exist ... create it by choosing last option 
+                        -- Choosing last option "newBrand "  add-brand-modal will be open 
+                        ------------------------------------------------------------------- -->
+
+
+                    <div class="form-group">
+                      <label>Marca</label>
+                      <select [(ngModel)]="selectedBrand" name="carBrand" id="carBrand" class="form-control" (ngModelChange)="carBrandChange($event)">
+                        <option selected hidden value=""></option>
+                        <option *ngFor="let carBrand of carBrands"  [ngValue]="carBrand.carBrandName"  >{{carBrand.carBrandName}} </option>                   
+                        <option class="add-warning" value="newBrand"> Adauga marca </option>
+                      </select>
+                    </div>
+
+                    
+                    <div class="form-group">
+                      <label>Model</label>
+                      <select class="form-control" [(ngModel)]="selectedModel" name="carModel" (ngModelChange)="carModelChange($event)" >
+                        <option hidden selected value=""></option>
+                        <option *ngFor="let carModel of carModels" [ngValue]="carModel.modelName"> {{carModel.modelName}} </option>
+                        <option class="add-warning" value="newModel"> Adauga model </option>
+                        
+                      </select>
+                    </div>
+                    
+
+
+                    <div class="form-group">
+                      <label>Car Owner</label>
+                      <input class="form-control form-control-lg" type="text" name="carOwner" ngModel
+                        placeholder="Enter carOwner">
+                    </div>
+                    <div class="form-group">
+                      <label>First Registration</label>
+                      <input class="form-control form-control-lg" type="date" name="carFirstReg" placeholder="dd-mm-yyyy" ngModel
+                      >
+                    </div>
+                    <div class="form-group">
+                      <label>Car Color</label>
+                      <input class="form-control form-control-lg" type="text" name="carColor" ngModel
+                        placeholder="Enter carOwner">
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" name="carSold" ngModel>
+                      <label class="form-check-label">
+                        Masina vanduta
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" name="carIsActive" ngModel>
+                      <label class="form-check-label">
+                        Masina activa
+                      </label>
+                    </div>
+
+
+
+                    <div class="text-center mt-3">
+                      <!--<a type="submit" class="btn btn-lg btn-primary">Sign up</a> -->
+                      <button type="submit" class="btn btn-lg btn-primary">Sign up</button>
+                    </div>
+                  </form>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal" id="new-car-close">
+                    Close</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

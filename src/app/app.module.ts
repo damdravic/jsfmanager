@@ -26,6 +26,11 @@ import { LayoutsModule  } from './layouts/layouts.module';
 
 import { LandingPageComponent } from './layouts/landing-page/landing-page.component';
 import { CarComponent } from './car/car.component';
+import { AddCarModalComponent } from './modal/add-car-modal/add-car-modal.component';
+
+import { AddBrandModalComponent } from './modal/add-brand-modal/add-brand-modal.component';
+import { AddModelModalComponent } from './modal/add-model-modal/add-model-modal.component';
+
 
 
 
@@ -43,8 +48,10 @@ import { CarComponent } from './car/car.component';
     LoginComponent,
     RegisterComponent,
     LandingPageComponent,
-    CarComponent
-  
+    CarComponent,
+    AddCarModalComponent,
+    AddBrandModalComponent,
+    AddModelModalComponent 
   ],
   imports: [
     BrowserModule,

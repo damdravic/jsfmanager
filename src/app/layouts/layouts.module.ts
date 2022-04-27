@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { DefaultComponent } from './default/default.component';
 import { DashboardComponent } from '../modules/dashboard/dashboard.component';
@@ -22,7 +23,8 @@ import { TablePageComponent }  from './table-page/table-page.component';
     RouterModule,
     SharedModule,
     MatSidenavModule,
-    MatDividerModule
+    MatDividerModule,
+    NgbModule
   ],exports: [
     TablePageComponent
 

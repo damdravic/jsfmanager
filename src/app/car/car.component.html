@@ -89,7 +89,7 @@
 
                     <div class="form-group">
                       <label>Marca</label>
-                      <select [(ngModel)]="selectedBrand" name="carBrandX" id="carBrandX" class="form-control" (change)="carBrandChange($event.target.value)">
+                      <select [(ngModel)]="selectedBrand" name="carBrand" id="carBrand" class="form-control" (change)="carBrandChange($event.target.value)">
                         <option disabled selected hidden value=""></option>
                         
                         <option *ngFor="let carBrand of carBrands" [value]="carBrand.carBrandName">{{carBrand.carBrandName}} </option>
