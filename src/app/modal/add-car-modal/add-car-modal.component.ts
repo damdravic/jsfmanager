@@ -82,6 +82,7 @@ export class AddCarModalComponent implements OnInit {
   //if brand exist call method to get all modelds foe selected brand
   public carBrandChange(value) {
     if (value == "newBrand") {
+      this.carModels=[];
       this.modalService.open(AddBrandModalComponent, { size: 'lg' });
     }else{
     this.getModelsForBrand(value);}

@@ -1,43 +1,179 @@
 
-<div class="cards-area">
-       
-    <div class="info-card">
-        <div class="card-content">
-            <div class="card-title">Line Charts</div>
-            <div class="card-info">56</div>
-       </div>
-       <div class="card-icon"><i class="fa fa-address-book" aria-hidden="true"></i></div>
-       </div>
 
-       <div class="info-card">
-        <div class="card-content">
-            <div class="card-title">Line Charts</div>
-            <div class="card-info">56</div>
-       </div>
-       <div class="card-icon"><i class="fa fa-address-book" aria-hidden="true"></i></div>
-       </div>
-
-       <div class="info-card">
-        <div class="card-content">
-            <div class="card-title">Line Charts</div>
-            <div class="card-info">56</div>
-       </div>
-       <div class="card-icon"><i class="fa fa-address-book" aria-hidden="true"></i></div>
-       </div>
-     
-       <div class="info-card">
-        <div class="card-content">
-            <div class="card-title">Line Charts</div>
-            <div class="card-info">56</div>
-            <a (click)="openModal()" >add new car</a>
-       </div>
-       <div class="card-icon"><i class="fa fa-address-book" aria-hidden="true"></i></div>
-       </div>
-    
-    
-</div>
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
+           <div class="col">
+             <div class="card radius-10 border-start border-0 border-3 border-info">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <p class="mb-0 text-secondary">Total Orders</p>
+                            <h4 class="my-1 text-info">4805</h4>
+                            <p class="mb-0 font-13">+2.5% from last week</p>
+                        </div>
+                        <div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto"><i class="fa fa-shopping-cart"></i>
+                        </div>
+                    </div>
+                </div>
+             </div>
+           </div>
+           <div class="col">
+            <div class="card radius-10 border-start border-0 border-3 border-danger">
+               <div class="card-body">
+                   <div class="d-flex align-items-center">
+                       <div>
+                           <p class="mb-0 text-secondary">Total Revenue</p>
+                           <h4 class="my-1 text-danger">$84,245</h4>
+                           <p class="mb-0 font-13">+5.4% from last week</p>
+                       </div>
+                       <div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto"><i class="fa fa-dollar"></i>
+                       </div>
+                   </div>
+               </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card radius-10 border-start border-0 border-3 border-success">
+               <div class="card-body">
+                   <div class="d-flex align-items-center">
+                       <div>
+                           <p class="mb-0 text-secondary">Bounce Rate</p>
+                           <h4 class="my-1 text-success">34.6%</h4>
+                           <p class="mb-0 font-13">-4.5% from last week</p>
+                       </div>
+                       <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class="fa fa-bar-chart"></i>
+                       </div>
+                   </div>
+               </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card radius-10 border-start border-0 border-3 border-warning">
+               <div class="card-body">
+                   <div class="d-flex align-items-center">
+                       <div>
+                           <p class="mb-0 text-secondary">Total Customers</p>
+                           <h4 class="my-1 text-warning">8.4K</h4>
+                           <p class="mb-0 font-13">+8.4% from last week</p>
+                       </div>
+                       <div class="widgets-icons-2 rounded-circle bg-gradient-blooker text-white ms-auto"><i class="fa fa-users"></i>
+                       </div>
+                   </div>
+               </div>
+            </div>
+          </div> 
+        </div>
+    </div>
 <mat-divider></mat-divider>
-<div>
-    <div>Table</div>
-    <div>Table</div>
+<div class="container bootstrap snippets bootdey">
+    <div class="table-responsive">
+    	<!-- PROJECT TABLE -->
+    	<table class="table colored-header datatable project-list">
+    		<thead>
+    			<tr>
+    				<th>Title</th>
+    				<th>Date Start</th>
+    				<th>Days to Deadline</th>
+    				<th>Progress</th>
+    				<th>Priority</th>
+    				<th>Leader</th>
+    				<th>Status</th>
+    			</tr>
+    		</thead>
+    		<tbody>
+    			<tr>
+    				<td><a href="#">Spot Media</a></td>
+    				<td>18-05-2014</td>
+    				<td>12 days</td>
+    				<td>
+    					<div class="progress">
+    						<div class="progress-bar" data-transitiongoal="95" aria-valuenow="95" style="width: 95%;">95%</div>
+    					</div>
+    				</td>
+    				<td><span class="label label-warning">MEDIUM</span></td>
+    				<td><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Avatar" class="avatar img-circle"> <a href="#">Michael</a></td>
+    				<td><span class="label label-success">ACTIVE</span></td>
+    			</tr>
+    			<tr>
+    				<td><a href="#">E-Commerce Site</a></td>
+    				<td>24-05-2014</td>
+    				<td>30 days</td>
+    				<td>
+    					<div class="progress">
+    						<div class="progress-bar" data-transitiongoal="40" aria-valuenow="40" style="width: 40%;">40%</div>
+    					</div>
+    				</td>
+    				<td><span class="label label-success">LOW</span></td>
+    				<td><img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="Avatar" class="avatar img-circle"> <a href="#">Antonius</a></td>
+    				<td><span class="label label-warning">PENDING</span></td>
+    			</tr>
+    			<tr>
+    				<td><a href="#">Project 123GO</a></td>
+    				<td>20-09-2014</td>
+    				<td>50 days</td>
+    				<td>
+    					<div class="progress">
+    						<div class="progress-bar" data-transitiongoal="65" aria-valuenow="65" style="width: 65%;">65%</div>
+    					</div>
+    				</td>
+    				<td><span class="label label-danger">HIGH</span></td>
+    				<td><img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="Avatar" class="avatar"> <a href="#">Antonius</a></td>
+    				<td><span class="label label-success">ACTIVE</span></td>
+    			</tr>
+    			<tr>
+    				<td><a href="#">Wordpress Theme</a></td>
+    				<td>05-10-2014</td>
+    				<td>40 days</td>
+    				<td>
+    					<div class="progress">
+    						<div class="progress-bar" data-transitiongoal="77" aria-valuenow="77" style="width: 77%;">77%</div>
+    					</div>
+    				</td>
+    				<td><span class="label label-warning">MEDIUM</span></td>
+    				<td><img src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="Avatar" class="avatar"> <a href="#">Michael</a></td>
+    				<td><span class="label label-success">ACTIVE</span></td>
+    			</tr>
+    			<tr>
+    				<td><a href="#">Redesign Landing Page</a></td>
+    				<td>15-11-2014</td>
+    				<td>30 days</td>
+    				<td>
+    					<div class="progress">
+    						<div class="progress-bar" data-transitiongoal="25" aria-valuenow="25" style="width: 25%;">25%</div>
+    					</div>
+    				</td>
+    				<td><span class="label label-success">LOW</span></td>
+    				<td><img src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="Avatar" class="avatar"> <a href="#">Jason</a></td>
+    				<td><span class="label label-success">ACTIVE</span></td>
+    			</tr>
+    			<tr>
+    				<td><a href="#">Wordpress Theme</a></td>
+    				<td>05-10-2014</td>
+    				<td>N/A</td>
+    				<td>
+    					<div class="progress">
+    						<div class="progress-bar progress-bar-default" data-transitiongoal="100" aria-valuenow="100" style="width: 100%;">100%</div>
+    					</div>
+    				</td>
+    				<td><span class="label label-default">MEDIUM</span></td>
+    				<td><img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Avatar" class="avatar"> <a href="#">Michael</a></td>
+    				<td><span class="label label-default">CLOSED</span></td>
+    			</tr>
+    			<tr>
+    				<td><a href="#">Redesign Landing Page</a></td>
+    				<td>15-11-2014</td>
+    				<td>30 days</td>
+    				<td>
+    					<div class="progress">
+    						<div class="progress-bar" data-transitiongoal="33" aria-valuenow="33" style="width: 33%;">33%</div>
+    					</div>
+    				</td>
+    				<td><span class="label label-success">LOW</span></td>
+    				<td><img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Avatar" class="avatar"> <a href="#">Jason</a></td>
+    				<td><span class="label label-warning">PENDING</span></td>
+    			</tr>
+    		</tbody>
+    	</table>
+    	<!-- END PROJECT TABLE -->
+    </div>
 </div>
