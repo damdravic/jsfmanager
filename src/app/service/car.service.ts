@@ -32,6 +32,10 @@ export class CarService {
     return this.http.delete<any>(`${this.host}/backendResource/car/delete/${regNumber}`);
   }
 
+  public searchCar(licencePlate: string):Observable<any | HttpErrorResponse>{
+    return this.http.get<any>(`${this.host}/backendResource/car/searchCar/${licencePlate}`);
+  }
+
   public updateCar(formData: FormData): Observable<Car | HttpErrorResponse> {
     return this.http.post<Car>(`${this.host}/backendResource/car/update/`, formData);
   }

@@ -8,6 +8,8 @@ import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { DefaultComponent } from './layouts/default/default.component';
 import { TablePageComponent } from './layouts/table-page/table-page.component';
 import { CarComponent } from './car/car.component';
+import { WorkshopComponent } from './modules/workshop/workshop.component';
+import { MainPageComponent } from './layouts/main-page/main-page.component';
 
 
 
@@ -19,7 +21,16 @@ const routes: Routes = [
   {path:'default', component:DefaultComponent,children :[
     { path:'',component:DashboardComponent },
     {path:'user',component:UserComponent},
-    {path:'cars',component:CarComponent}
+    {path:'cars',component:CarComponent},
+    {path:'workshop',component:WorkshopComponent}
+   
+  ]},
+
+  {path:'mainPage', component:MainPageComponent,children :[
+    { path:'',component:DashboardComponent },
+    {path:'user',component:UserComponent},
+    {path:'cars',component:CarComponent},
+    {path:'workshop',component:WorkshopComponent}
    
   ]},
 
@@ -27,6 +38,8 @@ const routes: Routes = [
      {path:'user',component:UserComponent},
      {path:'cars',component:CarComponent}
    ]},
+
+
    {path:'user', component:UserComponent},
 
   {path:'', redirectTo:'/login',pathMatch:'full'}

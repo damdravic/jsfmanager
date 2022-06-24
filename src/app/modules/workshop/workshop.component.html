@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-10  col-md-12">
+         <div class="row title justify-content-center">
+              <h3>Workshop Page</h3> 
+         </div>
+         <div class="row">
+              <div class="col">
+                <table class="table">
+                    <thead>
+                        <tr>
+                    <th scope="col"> Id</th>
+                    <th scope="col"> Name</th>
+                    <th scope="col"> Image</th>
+                    <th scope="col"> IsActive</th>
+                    <th scope="col"> Description</th>
+                    <th scope="col"> Workers</th>
+                    <th scope="col"> WorkQualification</th>
+                    </tr>
+                     </thead>
+                    <tr *ngFor="let workshop of workshops">
+                        <td>{{workshop.wsId}}</td>
+                        <td>{{workshop.wsName}}</td>
+                        <td>{{workshop.wsImage}}</td>
+                        <td>{{workshop.wsIsActive}}</td>
+                        <td>{{workshop.wsDescriotion}}</td>
+                        <td>{{workshop.wsWorkers}}</td>
+                        <td>{{workshop.wsIsActive}}</td>
+                        <td>{{workshop.wsWorkerQualification}}</td>
+                    </tr>
+                </table>
+
+              </div>
+         </div>
+         <div class="row justify-content-end">
+                <div class="col-lg-3 col-md-2  col-sm-1">
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#addNewWorkshop"> Add New Workshop</button>
+                </div>
+         </div>
+         
+      
+         
+         
+         
+  
+
+
+
+      </div>
+    </div>
+ 
+</div>

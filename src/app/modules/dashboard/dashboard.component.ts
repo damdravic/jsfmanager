@@ -15,6 +15,8 @@ export class DashboardComponent implements OnInit {
     this.modalService.open(AddCarModalComponent,{ size: 'lg' });
   }
 
+  
+
   ngOnInit(): void {
   }
 

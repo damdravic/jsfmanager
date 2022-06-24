@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
+import { AddNewWorkOrderModalComponent } from '../../../modal/add-new-work-order-modal/add-new-work-order-modal.component';
+
 
 @Component({
   selector: 'app-sheader',
@@ -7,9 +11,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SheaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private modalService : NgbModal) { }
 
   ngOnInit(): void {
   }
 
+ openNewOrder(){
+   this.modalService.open(AddNewWorkOrderModalComponent,{size:'lg'});
+ }
+
+
+
+
+
+
 }
+
+

@@ -9,6 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DefaultComponent } from './default/default.component';
 import { DashboardComponent } from '../modules/dashboard/dashboard.component';
 import { TablePageComponent }  from './table-page/table-page.component';
+import { MainPageComponent } from './main-page/main-page.component';
 
 
 
@@ -16,7 +17,8 @@ import { TablePageComponent }  from './table-page/table-page.component';
   declarations: [
     DefaultComponent,
     DashboardComponent,
-    TablePageComponent
+    TablePageComponent,
+    MainPageComponent
   ],
   imports: [
     CommonModule,

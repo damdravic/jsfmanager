@@ -30,6 +30,9 @@ import { AddCarModalComponent } from './modal/add-car-modal/add-car-modal.compon
 
 import { AddBrandModalComponent } from './modal/add-brand-modal/add-brand-modal.component';
 import { AddModelModalComponent } from './modal/add-model-modal/add-model-modal.component';
+import { AddNewWorkOrderModalComponent } from './modal/add-new-work-order-modal/add-new-work-order-modal.component';
+import { WorkshopComponent } from './modules/workshop/workshop.component';
+
 
 
 
@@ -51,7 +54,10 @@ import { AddModelModalComponent } from './modal/add-model-modal/add-model-modal.
     CarComponent,
     AddCarModalComponent,
     AddBrandModalComponent,
-    AddModelModalComponent 
+    AddModelModalComponent,
+  
+    AddNewWorkOrderModalComponent,
+        WorkshopComponent
   ],
   imports: [
     BrowserModule,

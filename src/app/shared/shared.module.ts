@@ -9,6 +9,7 @@ import {MatListModule} from '@angular/material/list';
 import { SheaderComponent } from './components/sheader/sheader.component';
 import {  RouterModule } from '@angular/router';
 import { AppRoutingModule } from '../app-routing.module';
+import { InfoBarComponent } from './components/info-bar/info-bar.component';
 
 
 
@@ -17,7 +18,8 @@ import { AppRoutingModule } from '../app-routing.module';
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
-    SheaderComponent
+    SheaderComponent,
+    InfoBarComponent
    
   ],
   imports: [
@@ -27,12 +29,14 @@ import { AppRoutingModule } from '../app-routing.module';
     MatListModule,
     RouterModule,
     AppRoutingModule
+  
   ],exports: [
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
     SheaderComponent,
-    AppRoutingModule
+    AppRoutingModule,
+    InfoBarComponent
 
   ]
 })
